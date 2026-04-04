@@ -1,4 +1,5 @@
 // seed.js
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Festival = require('./models/festival'); // adjust path to your model
 
