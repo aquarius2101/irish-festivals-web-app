@@ -1,17 +1,9 @@
-/*
-*    Title: Visualization Working Code
-*    Author: Rosales, Charlyn
-*    Date: 2025
-*    Availability: https://moodle2025.ncirl.ie/mod/resource/view.php?id=36542
-*
-*/
-
 // seed.js
 const mongoose = require('mongoose');
 const Festival = require('./models/festival'); // adjust path to your model
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://x23395061_db_user:nhungnguyen1234@wad.ujxr6zf.mongodb.net/IrishFestival2026?appName=wad");
+mongoose.connect(process.env.MONGO_URI);
 
 (async () => {
   try {
