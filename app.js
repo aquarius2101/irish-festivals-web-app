@@ -9,10 +9,6 @@ const app = express();
 //instruction with the view engine to be used
 app.set("view engine", "ejs");
 
-//connection to MongoDB database
-const dbURI =
-  "mongodb+srv://x23395061_db_user:nhungnguyen1234@wad.ujxr6zf.mongodb.net/IrishFestival2026?appName=wad";
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then((result) => app.listen(3000))
