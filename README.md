@@ -1,4 +1,5 @@
 # Irish Festivals Web App
+![Home Page](/homepage.png)
 
 A full‑stack web application built with **Node.js**, **Express**, **EJS**, and **MongoDB Atlas**.  
 The app allows users to view, create, and explore Irish festivals through a clean and dynamic interface.
