@@ -32,10 +32,10 @@ The app allows users to view, create, and explore Irish festivals through a clea
 .
 ├── app.js
 ├── seeds.js
-│── package.json
-│── package-lock.json
-│── .gitignore
-│── models/ 
+├── package.json
+├── package-lock.json
+├── .gitignore
+├── models/
 │   └── festival.js
 ├── views/
 │   ├── index.ejs
@@ -44,12 +44,12 @@ The app allows users to view, create, and explore Irish festivals through a clea
 │   ├── create.ejs
 │   ├── 404.ejs
 │   └── partials/
-│   |   ├── header.ejs 
-│   |   ├── nav.ejs     
-|   |   └── footer.ejs
-├── public/
-|   ├── style.css
-│   └── images
+│       ├── header.ejs
+│       ├── nav.ejs
+│       └── footer.ejs
+└── public/
+    ├── style.css
+    └── images/
 
 ---
 
