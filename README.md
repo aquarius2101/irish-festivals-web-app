@@ -44,13 +44,19 @@ npm install ejs express mongoose nodemon
 
 ### 3. Create a .env file
 Add your MongoDB Atlas connection string:
-```MONGO_URI=your-mongodb-uri-here```
+```
+MONGO_URI=your-mongodb-uri-here
+```
 
 ### 4. Seeding the database
-```nodemon seeds```
+```
+nodemon seeds
+```
 
 ### 5. Run the app
-```nodemon app```
+```
+nodemon app
+```
 
 The server will start on:
 http://localhost:3000
