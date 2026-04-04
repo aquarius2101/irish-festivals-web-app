@@ -9,6 +9,7 @@ const app = express();
 //instruction with the view engine to be used
 app.set("view engine", "ejs");
 
+//connection to MongoDB database
 mongoose
   .connect(process.env.MONGO_URI)
   .then((result) => app.listen(3000))
