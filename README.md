@@ -30,26 +30,26 @@ The app allows users to view, create, and explore Irish festivals through a clea
 
 ## 📁 Project Structure
 .
-├── app.js
-├── seeds.js
-├── package.json
-├── package-lock.json
-├── .gitignore
-├── models/
-│   └── festival.js
-├── views/
-│   ├── index.ejs
-│   ├── list.ejs
-│   ├── festival.ejs
-│   ├── create.ejs
-│   ├── 404.ejs
-│   └── partials/
-│       ├── header.ejs
-│       ├── nav.ejs
-│       └── footer.ejs
-└── public/
-    ├── style.css
-    └── images/
+|-- app.js
+|-- seeds.js
+|-- package.json
+|-- package-lock.json
+|-- .gitignore
+|-- models/
+|   `-- festival.js
+|-- views/
+|   |-- index.ejs
+|   |-- list.ejs
+|   |-- festival.ejs
+|   |-- create.ejs
+|   |-- 404.ejs
+|   `-- partials/
+|       |-- header.ejs
+|       |-- nav.ejs
+|       `-- footer.ejs
+`-- public/
+    |-- style.css
+    `-- images/
 
 ---
 
