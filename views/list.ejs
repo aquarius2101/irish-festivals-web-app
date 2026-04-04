@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header.ejs") %>
+
+  <body>
+    <h1>Festivals List</h1>
+    <%- include("./partials/nav.ejs") %>
+
+    <ul class="card">
+      <% if (festivals.length) { festivals.forEach(festival=> { %>
+        <a href = "/<%= festival._id %>">
+          <h2><%= festival.title %></h2>
+        </a>
+        <p> 
+          <strong>From: </strong>
+          <%= festival.startDate.toDateString() %> 
+          – 
+          <strong>To: </strong>
+          <%= festival.endDate.toDateString() %>
+        </p>
+        <p><strong>County: </strong> <%= festival.county %></p>
+        <p><strong>Website: </strong>
+          <a href="<%= festival.website %>"><%= festival.website %></a>
+        </p>
+        <br>
+        <p class="festivalShortDesc"><%= festival.shortDesc %></p>
+
+      <% }); } else { %>
+        <p>Sorry, there are no festivals yet...</p>
+      <% } %> 
+    </ul>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

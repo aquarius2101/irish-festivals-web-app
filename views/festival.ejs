@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include("./partials/header.ejs") %>
+
+  <body>
+    <h1>Festival details</h1>
+    <%- include("./partials/nav.ejs") %>
+
+    <div id="viewFestival" class="card">
+      <h2>
+        <%= festival.title %>
+      </h2>
+      <p> 
+        <strong>From: </strong>
+        <%= festival.startDate.toDateString() %> 
+        – 
+        <strong>To: </strong>
+        <%= festival.endDate.toDateString() %>
+      </p>
+
+      <p>
+        <strong>County: </strong> <%= festival.county %>
+      </p>
+
+      <p>
+        <strong>Website: </strong><%= festival.website %>
+      </p>
+      <br>
+
+      <p class="festivalShortDesc"><%= festival.shortDesc %></p>
+      <br>
+
+      <p>Updated on: <%= festival.updatedAt %></p>
+      <br>
+
+      <button id="deleteBtn" data-id="<%= festival._id %>">Delete festival</button>
+      <button id="editBtn">Edit festival</button>
+    </div>
+
+    <div id="editFestival" hidden>
+      <form class="form" action="/edit" method="post">
+        <h3>Edit festival details</h3>
+        <input type="text" required name="id" value="<%= festival._id %>" hidden><br>
+        <label>Title</label><br>
+        <input type="text" required name="title" value="<%= festival.title %>"><br>
+        <div class="dateRow">
+          <label>
+            From:
+            <input type="date" required name="startDate" value="<%= festival.startDate.toISOString().slice(0,10) %>"><br />
+          </label><br />
+          
+          <label>
+            To:
+            <input type="date" required name="endDate" value="<%= festival.endDate.toISOString().slice(0,10) %>" 
+                  min="<%= new Date().toISOString().split('T')[0] %>"/><br />
+          </label><br />
+        </div>
+
+        <label>County</label><br>
+        <input type="text" required name="county" value="<%= festival.county %>"><br>
+        <label>Website</label><br>
+        <input type="text" required name="website" value="<%= festival.website %>"><br>
+        <label>Short description</label><br>
+        <textarea cols="30" rows="4" required name="shortDesc"><%= festival.shortDesc %></textarea><br>
+        <button id="saveBtn">Save festival</button>
+      </form>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+
+    <script>
+      const deleteBtnElement = document.getElementById("deleteBtn");
+      const viewfestivalDivElement = document.getElementById("viewFestival");
+      const editfestivalDivElement = document.getElementById("editFestival");
+      const editBtnElement = document.getElementById("editBtn");
+      const saveBtnElement = document.getElementById("saveBtn");
+
+      deleteBtnElement.addEventListener("click", (e) => {
+        const backEndPoint = `/${deleteBtnElement.dataset.id}`;
+
+        fetch(backEndPoint, {
+            method: "DELETE"
+          })
+          .then((response) => response.json())
+          .then((responseJson) => window.location.href = responseJson.redirect)
+          .catch((error) => console.log(error));
+      });
+
+      editBtnElement.addEventListener("click", (e) => {
+        viewfestivalDivElement.style.display = "none";
+        editfestivalDivElement.style.display = "block";
+      });
+
+      saveBtnElement.addEventListener("click", (e) => {
+        viewfestivalDivElement.style.display = "block";
+        editfestivalDivElement.style.display = "none";
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <%- include("./partials/header.ejs") %>
+
+  <body>
+    <h1>Festivals in Ireland 2025 - 2026</h1>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="dashboard">
+      <div class="chart-container">
+        <h2 class="chart-title">Festivals by County</h2>
+        <canvas id="countyChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h2 class="chart-title">Festivals by Month in 2026</h2>
+        <canvas id="monthChart" width="600" height="400"></canvas>
+      </div>
+    </div>
+    
+    <!-- Adapted from:
+      Title: Visualization Working Code
+      Author: Rosales, Charlyn
+      Date: 2025
+      Availability: https://moodle2025.ncirl.ie/mod/resource/view.php?id=36542
+    --> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Pie chart
+      fetch("/api/pie-chart")
+        .then(res => res.json())
+        .then(data => {
+          const countyLabels = data.map(item => item._id);
+          const countyCounts = data.map(item => item.count);
+
+          new Chart(document.getElementById("countyChart"), {
+            type: "pie",
+            data: {
+              labels: countyLabels,
+              datasets: [{
+                data: countyCounts,
+                backgroundColor: ["#38b48b", "#4fc1a6", "#ffd700", "#2a5298", "#ff7f50", "#9370db", "#87ceeb"]
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {legend: { position: "bottom" }}
+            }
+          });
+        })
+        .catch(err => console.error("Error loading chart data:", err));
+
+      // Bar chart: festivals by month
+      fetch("/api/bar-chart")
+        .then(res => res.json())
+        .then(data => {
+          const labels = data.map(item => item.month);
+          const counts = data.map(item => item.count);
+
+          new Chart(document.getElementById("monthChart"), {
+            type: "bar",
+            data: {
+              labels: labels,
+              datasets: [{
+                label: "Number of Festivals",
+                data: counts,
+                backgroundColor: "#4fc1a6"
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {legend: { display: false }},
+              scales: {
+                y: { beginAtZero: true }
+              }
+            }
+          });
+        })
+        .catch(err => console.error("Error loading month chart:", err));
+    </script>
+
+    
+    <ul class="card">
+      <h1>Ongoing Festivals</h1>
+      <% if (festivals.length) { festivals.forEach(festival=> { %>
+        <a href="/<%= festival._id %>">
+          <h2><%= festival.title %></h2>
+          <p> 
+            <strong>From: </strong>
+            <%= festival.startDate.toDateString() %> 
+            – 
+            <strong>To: </strong>
+            <%= festival.endDate.toDateString() %>
+          </p>
+        </a>
+
+      <% }); } else { %>
+        <p>Sorry, there are no festivals yet...</p>
+      <% } %>
+    </ul>
+    
+    <%- include("./partials/footer.ejs") %>
+  </body>
+
+  
+</html>

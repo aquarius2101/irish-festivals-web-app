@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <%- include("./partials/header.ejs") %>
+
+  <body>
+    <h1>Add a new festival</h1>
+    <%- include("./partials/nav.ejs") %>
+
+    <form id="create-form" class="form" action="/" method="POST">
+      <label>Title</label><br />
+      <input type="text" required name="title" /><br />
+      <div class="dateRow">
+        <label>
+          From:
+          <input type="date" required name="startDate" id="startDate"/><br />
+        </label><br />
+        
+        <label>
+          To:
+          <input type="date" required name="endDate" id="endDate"
+                min="<%= new Date().toISOString().split('T')[0] %>"/><br />
+        </label><br />
+      </div>
+
+      <label>County</label><br />
+      <input type="text" required name="county" /><br />
+      <label>Website</label><br />
+      <input type="text" required name="website" /><br />
+      <label>Short Description</label><br />
+      <textarea cols="30" rows="3" required name="shortDesc"></textarea><br />
+      <button type="submit">Add festival</button>
+    </form>
+
+    <%- include("./partials/footer.ejs") %>
+
+    <script>
+      const form = document.getElementById("create-form");
+      const startDateInput = document.getElementById("startDate");
+      const endDateInput = document.getElementById("endDate");
+
+      form.addEventListener("submit", function(event) {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        if (startDate > endDate) {
+          event.preventDefault(); // stop form submission
+          alert("Start date must be on or before end date.");
+        }
+      });
+    </script>
+
+
+  </body>
+</html>

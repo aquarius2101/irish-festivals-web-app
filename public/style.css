@@ -1,0 +1,128 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  margin-top: 0;
+}
+
+nav a {
+  color: white;          /* green text instead of white box */
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.dateRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+input, textarea, select {
+  width: 95%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+.card p {
+  margin: 4px 0;
+}
+
+.festivalShortDesc {
+    font-style: italic;
+    color: black;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: rgba(14, 87, 22, 0.784);
+  margin-bottom: 0;
+}
+
+h2 {
+    color: #ff883e;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.dashboard {
+    display: flex;              /* enable flexbox */
+    justify-content: center;    /* center horizontally */
+    align-items: flex-start;    /* align charts at the top */
+    gap: 2rem;                  /* space between charts */
+    flex-wrap: wrap;            /* allow wrapping on smaller screens */
+  }
+
+#countyChart {
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+.chart-container {
+  text-align: center;
+  padding: 1rem 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* soft overlay for readability */
+  border-radius: 12px;
+  max-width: 800px;
+  min-height: 400px;
+  margin: 0 auto;
+}
+
+#monthChart {
+  width: 600px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+.chart-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2a5298;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
