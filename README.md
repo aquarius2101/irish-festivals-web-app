@@ -19,17 +19,14 @@ The app allows users to view, create, and explore Irish festivals through a clea
 ---
 
 ## Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| Backend | Node.js, Express.js |
-| Frontend | EJS templating engine, CSS |
-| Database | MongoDB Atlas (Mongoose ODM) |
-| Tools | npm, Visual Studio Code |
+Backend: Node.js, Express.js
+Frontend: EJS templating engine, CSS
+Database: MongoDB Atlas (Mongoose ODM)
+Tools: npm, Visual Studio Code
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the repository
 ```bash```
