@@ -19,9 +19,9 @@ The app allows users to view, create, and explore Irish festivals through a clea
 ---
 
 ## Tech Stack
-Backend: Node.js, Express.js
-Frontend: EJS templating engine, CSS
-Database: MongoDB Atlas (Mongoose ODM)
+Backend: Node.js, Express.js  
+Frontend: EJS templating engine, CSS  
+Database: MongoDB Atlas (Mongoose ODM)  
 Tools: npm, Visual Studio Code
 
 ---
